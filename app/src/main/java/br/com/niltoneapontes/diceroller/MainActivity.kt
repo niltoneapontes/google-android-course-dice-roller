@@ -9,9 +9,13 @@ import android.widget.Toast
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var diceImage: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        diceImage = findViewById(R.id.dice_image)
 
         val button: Button = findViewById(R.id.roll_button)
         button.setOnClickListener {
@@ -21,7 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
         val result = Random.nextInt(6) + 1
-        val diceImage: ImageView = findViewById(R.id.dice_image)
 
         val drawableResource = when(result) {
             1 -> R.drawable.dice_1
